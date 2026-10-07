@@ -1,0 +1,16 @@
+:root {
+  --bg-primary: #fafcff;
+  --bg-secondary: #f3f7fc;
+  --surface: #ffffff;
+  --text-primary: #17243a;
+  --text-secondary: #5e6d83;
+  --accent: #233f64;
+  --accent-soft: #e9f2fc;
+  --muted-accent: #55749a;
+  --border: #dfe7f0;
+  --radius: 12px;
+  --shadow: 0 24px 65px -30px #203b6529;
+  --content-width: 1280px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --section-space: 132px;
+}

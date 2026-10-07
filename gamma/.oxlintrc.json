@@ -1,0 +1,30 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["react", "jsx-a11y", "typescript", "unicorn", "oxc"],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn"
+  },
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "react/no-unknown-property": "off",
+    "react/rules-of-hooks": "error",
+    "react/exhaustive-deps": "warn",
+
+    // role=img on <svg>, role=dialog on animated portals and role=status live
+    // regions are the WAI-ARIA recommended patterns; native tags aren't equivalents.
+    "jsx-a11y/prefer-tag-over-role": "off",
+
+    // Render-prop triggers (Menu, Tooltip) are functions, not nested components.
+    "react/no-unstable-nested-components": "off",
+
+    // Dates in report headers/footers are read at render on purpose (no React Compiler).
+    "react/purity": "off",
+
+    // Sorting is always applied to fresh arrays; toSorted() would raise the browser baseline.
+    "unicorn/no-array-sort": "off",
+    "unicorn/no-array-for-each": "off",
+    "unicorn/consistent-function-scoping": "off"
+  },
+  "ignorePatterns": ["dist", "node_modules"]
+}

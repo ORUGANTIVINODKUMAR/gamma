@@ -1,0 +1,6 @@
+/* Scoped to one link outside React: no existing app styles or layout change. */
+#showcase-back-link { position: fixed; bottom: max(16px, env(safe-area-inset-bottom)); left: max(16px, env(safe-area-inset-left)); z-index: 10000; display: inline-flex; align-items: center; min-height: 40px; padding: 9px 14px; border: 1px solid #d6deeb; border-radius: 6px; background: #fff; color: #244e90; box-shadow: 0 2px 10px rgb(20 40 70 / 8%); font: 500 12px/1.4 system-ui, sans-serif; text-decoration: none; transition: background 160ms ease; }
+#showcase-back-link:hover { background: #f0f5fd; }
+#showcase-back-link:focus-visible { outline: 3px solid #698fd0; outline-offset: 3px; }
+@media print { #showcase-back-link { display: none; } }
+@media (prefers-reduced-motion: reduce) { #showcase-back-link { transition: none; } }

@@ -1,0 +1,48 @@
+.detail-page, .account-page { min-height: 700px; padding-block: 65px 110px; }
+.back-link { display: inline-flex; align-items: center; gap: 10px; color: #506b8e; font-size: 12px; margin-bottom: 45px; }
+.detail-page .eyebrow { display: flex; margin-bottom: 25px; }
+.detail-page h1, .account-page h1 { font-size: clamp(44px, 5vw, 68px); max-width: 850px; margin-bottom: 27px; }
+.detail-description { font-size: 17px; color: var(--text-secondary); line-height: 1.85; max-width: 710px; }
+.detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 90px; margin-top: 48px; }
+.placeholder-panel, .legal-panel { padding: 40px; border: 1px solid #dce6f2; border-radius: 13px; background: #f1f6fd; }
+.placeholder-panel > svg { color: #5c81b0; margin-bottom: 24px; }
+.placeholder-panel h2, .legal-panel h2 { font-size: 29px; letter-spacing: -1px; }
+.placeholder-panel p, .legal-panel p { font-size: 15px; color: #5e6d83; line-height: 1.85; }
+.placeholder-badge { display: inline-flex; font-size: 9px; letter-spacing: 1px; color: #4f6f94; border: 1px solid #c9dcef; padding: 8px 11px; border-radius: 4px; margin-block: 12px; }
+.legal-panel { max-width: 800px; margin-top: 43px; }
+.legal-panel h2 { margin-top: 17px; }
+.legal-panel .button { margin-top: 23px; }
+.account-layout { display: grid; grid-template-columns: 1fr .88fr; gap: 105px; align-items: center; }
+.account-layout .eyebrow { margin-bottom: 25px; }
+.account-layout > div > p { font-size: 17px; color: #5e6d83; line-height: 1.85; max-width: 420px; }
+.account-note { display: flex; align-items: center; gap: 10px; font-size: 12px; color: #506b8e; margin-top: 32px; }
+.account-form-panel { padding: 37px; border: 1px solid #dfe7f0; background: #fff; border-radius: 13px; box-shadow: 0 20px 60px -30px #24405a20; }
+.account-form-panel h2 { font-size: 26px; letter-spacing: -.9px; margin-bottom: 15px; }
+.account-layout .preview-notice { font-size: 11px; color: #5e6d83; line-height: 1.75; }
+form { display: grid; gap: 21px; margin-top: 28px; }
+form label { display: grid; gap: 9px; font-size: 12px; font-weight: 600; color: #3d5778; }
+input { width: 100%; min-height: 49px; border: 1px solid #d9e3f0; background: #fafdff; border-radius: 8px; padding: 13px; font-size: 14px; color: #263c5b; transition: border-color .3s, box-shadow .3s; }
+input:hover { border-color: #aec7e4; }
+input:focus { border-color: #5c83b3; box-shadow: 0 0 0 3px #5c83b312; }
+input::placeholder { color: #657a95; font-weight: 400; }
+.password-input { display: flex; position: relative; }
+.password-input input { padding-right: 44px; }
+.password-input button { position: absolute; right: 5px; top: 5px; width: 38px; height: 39px; display: grid; place-items: center; background: transparent; border: 0; color: #6484aa; border-radius: 4px; }
+.form-submit { width: 100%; justify-content: space-between; }
+.form-status { padding: 14px; background: #edf5ff; border: 1px solid #d4e4f7; border-radius: 7px; font-size: 12px; line-height: 1.8; color: #3f6089; margin: 0; }
+.account-layout .account-switch { font-size: 12px; text-align: center; margin-top: 27px; margin-bottom: 0; }
+.account-switch a { color: #375c8a; text-decoration: underline; text-underline-offset: 3px; margin-left: 5px; }
+@media (max-width: 1150px) { .account-layout { gap: 60px; } }
+@media (max-width: 900px) { .account-layout { gap: 35px; grid-template-columns: 1fr 1fr; } .account-form-panel { padding: 27px; } }
+@media (max-width: 767px) {
+  .detail-page, .account-page { min-height: 570px; padding-block: 36px 78px; }
+  .detail-page h1, .account-page h1 { font-size: 45px; letter-spacing: -2.2px; }
+  .detail-description { font-size: 16px; }
+  .detail-grid, .account-layout { grid-template-columns: 1fr; gap: 40px; }
+  .detail-grid { margin-top: 30px; }
+  .back-link { margin-bottom: 36px; }
+  .account-form-panel, .legal-panel, .placeholder-panel { padding: 26px; }
+  .account-layout > div > p { font-size: 16px; }
+  .legal-panel h2 { font-size: 26px; }
+  input { font-size: 16px; }
+}

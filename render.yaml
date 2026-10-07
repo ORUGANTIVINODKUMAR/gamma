@@ -1,0 +1,36 @@
+services:
+  - type: web
+    name: tapreco-project-showcase
+    runtime: static
+    buildCommand: npm ci && npm run build
+    staticPublishPath: ./dist
+    envVars:
+      - key: NODE_VERSION
+        value: 24.19.0
+      - key: SKIP_INSTALL_DEPS
+        value: "true"
+    routes:
+      - type: rewrite
+        source: /tapreco-workspace
+        destination: /tapreco-workspace/index.html
+      - type: rewrite
+        source: /tapreco-workspace/*
+        destination: /tapreco-workspace/index.html
+      - type: rewrite
+        source: /tapreco-globe
+        destination: /tapreco-globe/index.html
+      - type: rewrite
+        source: /tapreco-globe/*
+        destination: /tapreco-globe/index.html
+      - type: rewrite
+        source: /tapreco-tax-intelligence
+        destination: /tapreco-tax-intelligence/index.html
+      - type: rewrite
+        source: /tapreco-tax-intelligence/*
+        destination: /tapreco-tax-intelligence/index.html
+      - type: rewrite
+        source: /tapreco-platform
+        destination: /tapreco-platform/index.html
+      - type: rewrite
+        source: /tapreco-platform/*
+        destination: /tapreco-platform/index.html

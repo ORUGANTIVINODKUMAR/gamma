@@ -1,0 +1,411 @@
+/* Animated tool scenes: flat light UI, transitions only (driven by step state in ToolScenes.tsx) */
+.sc {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  margin-inline: auto;
+  display: grid;
+  gap: 16px;
+  justify-items: center;
+}
+.sc--row {
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  max-width: 560px;
+}
+.sc__card {
+  width: 100%;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 14px 34px rgba(39, 75, 109, 0.1);
+  padding: 22px;
+}
+.sc__card--lg {
+  padding: 26px;
+}
+.sc__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 16px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.sc__head b {
+  font-size: 1rem;
+}
+.sc__head span {
+  font-size: 0.82rem;
+  color: var(--text-3);
+}
+.sc__line {
+  display: block;
+  height: 8px;
+  border-radius: 4px;
+  background: var(--bg-blue);
+}
+.sc__line--s {
+  width: 70%;
+}
+.sc__line--xs {
+  width: 45%;
+}
+
+/* checklist (planner + audit) */
+.sc__list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 10px;
+  margin-inline: -10px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-2);
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease;
+}
+.sc__list li .sc__line {
+  margin-left: auto;
+  width: 54px;
+}
+.sc__check {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--border-strong);
+  border-radius: 6px;
+  color: transparent;
+  transition:
+    background-color 0.35s ease,
+    border-color 0.35s ease,
+    color 0.2s ease 0.1s,
+    transform 0.35s ease;
+}
+.sc__list li.is-now {
+  background: var(--accent-soft);
+  color: var(--text);
+}
+.sc__list li.is-now .sc__check {
+  border-color: var(--accent);
+}
+.sc__list li.is-done {
+  color: var(--text);
+}
+.sc__list li.is-done .sc__check {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  transform: scale(1.08);
+}
+.sc__progress {
+  height: 6px;
+  margin-top: 14px;
+  border-radius: 3px;
+  background: var(--bg-blue);
+  overflow: hidden;
+}
+.sc__progress span {
+  display: block;
+  height: 100%;
+  border-radius: 3px;
+  background: var(--accent);
+  transition: width 0.6s ease;
+}
+.sc__pop {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 0.88rem;
+  font-weight: 600;
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 0.45s ease,
+    transform 0.45s ease;
+}
+.sc__pop.is-on {
+  opacity: 1;
+  transform: none;
+}
+
+/* estimated tax: calculator */
+.sc__calc {
+  width: 210px;
+  padding: 16px;
+  background: linear-gradient(#f3f8fd, #e9f2fa);
+}
+.sc__display {
+  height: 54px;
+  margin-bottom: 14px;
+  padding: 0 14px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-radius: 10px;
+  background: #fff;
+  border: 1px solid var(--border);
+}
+.sc__display span {
+  display: block;
+  height: 12px;
+  border-radius: 4px;
+  background: var(--accent);
+  opacity: 0.75;
+  transition: width 0.5s ease;
+}
+.sc__keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+.sc__key {
+  height: 34px;
+  border-radius: 8px;
+  background: #fff;
+  border: 1px solid var(--border);
+  transition:
+    background-color 0.15s ease,
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+.sc__key--eq {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+.sc__key.is-pressed {
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: translateY(2px) scale(0.94);
+  box-shadow: none;
+}
+.sc__quarters li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  opacity: 0.35;
+  transform: translateX(10px);
+  transition:
+    opacity 0.45s ease,
+    transform 0.45s ease;
+}
+.sc__quarters li:last-child {
+  border-bottom: 0;
+}
+.sc__quarters li strong {
+  width: 28px;
+  color: var(--accent);
+}
+.sc__quarters li span {
+  color: var(--text-2);
+  font-size: 0.95rem;
+}
+.sc__quarters li svg {
+  margin-left: auto;
+  color: var(--accent);
+  opacity: 0;
+  transition: opacity 0.3s ease 0.2s;
+}
+.sc__quarters li.is-on {
+  opacity: 1;
+  transform: none;
+}
+.sc__quarters li.is-on svg {
+  opacity: 1;
+}
+
+/* audit: scan beam */
+.sc__scan {
+  position: relative;
+  overflow: hidden;
+}
+.sc__beam {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 44px;
+  margin-top: -22px;
+  background: linear-gradient(180deg, rgba(69, 119, 168, 0), rgba(69, 119, 168, 0.16), rgba(69, 119, 168, 0));
+  border-bottom: 2px solid rgba(69, 119, 168, 0.45);
+  transition:
+    top 0.65s ease,
+    opacity 0.4s ease;
+  pointer-events: none;
+}
+.sc__list--audit li em {
+  margin-left: auto;
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-style: normal;
+  font-size: 0.74rem;
+  font-weight: 600;
+  background: var(--bg-gray);
+  color: var(--text-3);
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease;
+}
+.sc__list--audit li.is-done em {
+  background: var(--accent-soft);
+  color: var(--primary);
+}
+.sc__list--audit li.is-flag em {
+  background: #fff1d6;
+  color: #8a5a00;
+}
+.sc__list--audit li.is-flag .sc__check {
+  background: #e8a73a;
+  border-color: #e8a73a;
+}
+
+/* entity comparison */
+.sc__toggle {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 300px;
+  padding: 4px;
+  border-radius: 10px;
+  background: #fff;
+  border: 1px solid var(--border);
+  box-shadow: 0 6px 16px rgba(39, 75, 109, 0.08);
+}
+.sc__toggle span {
+  position: relative;
+  z-index: 1;
+  padding: 8px 0;
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-3);
+  transition: color 0.3s ease;
+}
+.sc__toggle span.is-on {
+  color: #fff;
+}
+.sc__toggle i {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  left: 4px;
+  width: calc(50% - 4px);
+  border-radius: 7px;
+  background: var(--primary);
+  transition: transform 0.45s ease;
+}
+.sc__pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  width: 100%;
+}
+.sc__entity {
+  display: grid;
+  gap: 10px;
+  padding: 22px 20px 26px;
+  opacity: 0.6;
+  transform: scale(0.97);
+  transition:
+    opacity 0.45s ease,
+    transform 0.45s ease,
+    border-color 0.45s ease,
+    box-shadow 0.45s ease;
+}
+.sc__entity small {
+  margin-bottom: 6px;
+  color: var(--text-3);
+}
+.sc__entity.is-lit {
+  opacity: 1;
+  transform: scale(1);
+  border-color: var(--accent);
+  box-shadow: 0 18px 38px rgba(69, 119, 168, 0.22);
+}
+.sc__entity.is-lit .sc__line {
+  background: #cfe0f0;
+}
+
+/* mutual fund */
+.sc__fund li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity 0.45s ease,
+    transform 0.45s ease;
+}
+.sc__fund li.is-in {
+  opacity: 1;
+  transform: none;
+}
+.sc__fund li .sc__line {
+  flex: 1;
+}
+.sc__fund li em {
+  font-style: normal;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  background: var(--bg-gray);
+  color: transparent;
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease;
+}
+.sc__fund li em.is-tag {
+  background: var(--accent-soft);
+  color: var(--primary);
+}
+.sc__ready {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--primary);
+  opacity: 0;
+  transform: translateY(6px);
+  transition:
+    opacity 0.45s ease,
+    transform 0.45s ease;
+}
+.sc__ready.is-on {
+  opacity: 1;
+  transform: none;
+}
+
+@media (max-width: 560px) {
+  .sc--row {
+    grid-template-columns: 1fr;
+  }
+  .sc__calc {
+    width: 100%;
+  }
+  .sc__toggle {
+    width: 100%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sc *,
+  .sc {
+    transition-duration: 0.01ms !important;
+  }
+}
